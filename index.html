@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arun MP Online CSC - इंदौर सरकारी सेवाएं</title>
+    <title>Arun MP Online CSC - सरकारी सेवाएं</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,54 +15,53 @@
                     <span class="logo-icon">🏛️</span>
                     <h1>Arun MP Online CSC</h1>
                 </div>
-                <p class="subtitle">इंदौर सरकारी सेवाएं गाइड 2024</p>
+                <p class="subtitle">इंदौर - सरकारी सेवाएं गाइड 2024</p>
+            </div>
+            <div class="header-nav">
+                <button class="nav-btn" onclick="showHome()">🏠 होम</button>
+                <button class="nav-btn" onclick="showServices()">📋 सेवाएं</button>
+                <button class="nav-btn" onclick="showAdmin()">📊 Admin Panel</button>
             </div>
         </header>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-number" id="totalServices">40+</div>
-                    <div class="stat-label">कुल सेवाएं</div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <section id="homePage" class="page active">
+                <div class="hero">
+                    <h2>आपकी सभी सरकारी सेवाएं एक जगह</h2>
+                    <p>प्रमाण पत्र, लाइसेंस, पंजीकरण - सब कुछ के लिए Step-by-Step Guide</p>
+                    <button class="hero-btn" onclick="showServices()">सेवाएं देखें 👉</button>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="searchCount">0</div>
-                    <div class="stat-label">खोज</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="pageCount">1</div>
-                    <div class="stat-label">पृष्ठ</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="favoriteCount">0</div>
-                    <div class="stat-label">पसंदीदा</div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Search Section -->
-        <section class="search-section">
-            <input type="text" id="searchInput" class="search-box" placeholder="सेवा खोजें - जैसे PAN, आधार, बिजली बिल...">
-        </section>
+            <!-- Services Page -->
+            <section id="servicesPage" class="page">
+                <div class="search-section">
+                    <input type="text" id="searchInput" class="search-box" placeholder="सेवा खोजें...">
+                </div>
+                <div class="services-grid" id="servicesGrid"></div>
+            </section>
 
-        <!-- Filter Section -->
-        <section class="filter-section">
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">सभी</button>
-                <button class="filter-btn" data-filter="document">दस्तावेज़</button>
-                <button class="filter-btn" data-filter="banking">बैंकिंग</button>
-                <button class="filter-btn" data-filter="utility">यूटिलिटी</button>
-                <button class="filter-btn" data-filter="government">सरकारी</button>
-            </div>
-        </section>
+            <!-- Service Detail Page -->
+            <section id="detailPage" class="page">
+                <button class="back-btn" onclick="showServices()">← वापिस</button>
+                <div class="detail-container" id="detailContent"></div>
+            </section>
 
-        <!-- Services Grid -->
-        <section class="services-section">
-            <div class="services-grid" id="servicesGrid">
-                <!-- Services will be loaded here by JavaScript -->
-            </div>
-        </section>
+            <!-- Admin Panel -->
+            <section id="adminPage" class="page">
+                <div class="admin-container">
+                    <h2>📊 Admin Dashboard</h2>
+                    <div class="admin-tabs">
+                        <button class="tab-btn active" onclick="showAdminTab('pending')">⏳ पेंडिंग</button>
+                        <button class="tab-btn" onclick="showAdminTab('completed')">✅ पूरी हुई</button>
+                        <button class="tab-btn" onclick="showAdminTab('all')">📋 सभी</button>
+                    </div>
+                    <div id="adminContent" class="admin-content"></div>
+                </div>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer class="footer">
@@ -70,6 +69,22 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Service Detail Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBooking()">&times;</span>
+            <h2>सेवा के लिए आवेदन करें</h2>
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <input type="text" id="customerName" placeholder="आपका नाम" required>
+                <input type="tel" id="customerPhone" placeholder="फोन नंबर (WhatsApp)" required>
+                <input type="email" id="customerEmail" placeholder="ईमेल (Optional)">
+                <textarea id="customerNotes" placeholder="कोई विशेष जानकारी..."></textarea>
+                <button type="submit" class="submit-btn">आवेदन करें ✅</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
