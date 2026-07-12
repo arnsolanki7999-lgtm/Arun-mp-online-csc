@@ -20,15 +20,60 @@ const services = [
     },
     {
         id: 3,
-        title: "महराना प्रथाप पत्र",
+        title: "जाति प्रमाण पत्र (Caste Certificate)",
         category: "document",
-        icon: "📋",
-        description: "Form 6 / Form 8 - ECI",
-        fee: "निशुल्क (सेवा शुल्क लागू)",
+        icon: "📜",
+        description: "SC/ST/OBC जाति प्रमाण पत्र आवेदन",
+        fee: "निशुल्क + ₹50-100 मीटर",
         guide: "GUIDE"
     },
     {
         id: 4,
+        title: "आय प्रमाण पत्र",
+        category: "document",
+        icon: "💰",
+        description: "Annual Income Certificate आवेदन",
+        fee: "निशुल्क + ₹20-50 मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 5,
+        title: "निवास प्रमाण पत्र",
+        category: "document",
+        icon: "🏠",
+        description: "Domicile / Residency Certificate",
+        fee: "निशुल्क + ₹20-50 मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 6,
+        title: "स्वतंत्रता सेनानी पत्र",
+        category: "document",
+        icon: "🇮🇳",
+        description: "Freedom Fighter Certificate",
+        fee: "निशुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 7,
+        title: "अविवाहित प्रमाण पत्र",
+        category: "document",
+        icon: "💍",
+        description: "Unmarried / Bachelor Certificate",
+        fee: "₹25-50 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 8,
+        title: "भीड़ प्रमाण पत्र",
+        category: "document",
+        icon: "👤",
+        description: "Family Relation Certificate",
+        fee: "₹20-30 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 9,
         title: "नया पासपोर्ट आवेदन",
         category: "document",
         icon: "🛂",
@@ -37,7 +82,16 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 5,
+        id: 10,
+        title: "पासपोर्ट नवीनीकरण",
+        category: "document",
+        icon: "🛂",
+        description: "Passport Renewal Service",
+        fee: "₹2,000 + सेवा शुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 11,
         title: "आयुष्मान भारत कार्ड",
         category: "banking",
         icon: "❤️",
@@ -46,7 +100,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 6,
+        id: 12,
         title: "ई-श्रम कार्ड पंजीयन",
         category: "banking",
         icon: "💼",
@@ -55,16 +109,79 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 7,
+        id: 13,
+        title: "प्रधानमंत्री जन धन योजना",
+        category: "banking",
+        icon: "🏦",
+        description: "PMJDY Bank Account खुलवाएं",
+        fee: "निशुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 14,
+        title: "सुकन्या समृद्धि योजना",
+        category: "banking",
+        icon: "👧",
+        description: "बेटी के लिए बचत खाता",
+        fee: "निशुल्क + ₹50-100 मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 15,
+        title: "प्रधानमंत्री मुद्रा लोन",
+        category: "banking",
+        icon: "💳",
+        description: "Business Loan ₹50,000 तक",
+        fee: "निशुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 16,
         title: "पीएम विश्वकर्मा योजना",
         category: "government",
-        icon: "🏠",
+        icon: "🏗️",
         description: "पारंपरिक कारीगर पेंशन",
         fee: "निशुल्क",
         guide: "GUIDE"
     },
     {
-        id: 8,
+        id: 17,
+        title: "प्रधानमंत्री आवास योजना",
+        category: "government",
+        icon: "🏡",
+        description: "Affordable Housing Scheme",
+        fee: "निशुल्क + ₹50 मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 18,
+        title: "राष्ट्रीय पारिवारिक लाभ योजना",
+        category: "government",
+        icon: "👨‍👩‍👧‍👦",
+        description: "Family Benefit Scheme",
+        fee: "निशुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 19,
+        title: "राष्ट्रीय वृद्धा पेंशन योजना",
+        category: "government",
+        icon: "👴",
+        description: "Senior Citizen Pension",
+        fee: "निशुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 20,
+        title: "राष्ट्रीय विकलांग पेंशन योजना",
+        category: "government",
+        icon: "♿",
+        description: "Disability Pension",
+        fee: "निशुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 21,
         title: "पीएम सूर्य घर मुफ्त बिजली",
         category: "utility",
         icon: "☀️",
@@ -73,16 +190,34 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 9,
-        title: "मत्स्य पालन अकाउंट",
-        category: "document",
-        icon: "🐟",
-        description: "जिलीन तत्पारता खोल्टर",
-        fee: "₹20 मीटर",
+        id: 22,
+        title: "बिजली बिल भुगतान",
+        category: "utility",
+        icon: "⚡",
+        description: "Online Electricity Bill Payment",
+        fee: "₹5-10 (सुविधा शुल्क)",
         guide: "GUIDE"
     },
     {
-        id: 10,
+        id: 23,
+        title: "पानी बिल भुगतान",
+        category: "utility",
+        icon: "💧",
+        description: "Online Water Bill Payment",
+        fee: "₹5-10 (सुविधा शुल्क)",
+        guide: "GUIDE"
+    },
+    {
+        id: 24,
+        title: "रेडियो /दूरदर्शन लाइसेंस",
+        category: "utility",
+        icon: "📻",
+        description: "Broadcast License Renewal",
+        fee: "₹100-300 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 25,
         title: "लहरी ड्राइविंग लाइसेंस",
         category: "document",
         icon: "🚗",
@@ -91,16 +226,16 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 11,
+        id: 26,
         title: "स्थायी DL / नवीनीकरण",
         category: "document",
         icon: "📑",
-        description: "Sarathi - गृहीत लाइसेंस",
+        description: "Sarathi - स्थायी ड्राइविंग लाइसेंस",
         fee: "₹200 + ₹300 टेक्स + मीटर",
         guide: "GUIDE"
     },
     {
-        id: 12,
+        id: 27,
         title: "वाहन RC सेवाएं",
         category: "utility",
         icon: "🚙",
@@ -109,7 +244,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 13,
+        id: 28,
         title: "ट्रैफिक चालान भुगतान",
         category: "utility",
         icon: "⚠️",
@@ -118,7 +253,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 14,
+        id: 29,
         title: "GST पंजीयन",
         category: "government",
         icon: "📊",
@@ -127,7 +262,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 15,
+        id: 30,
         title: "उद्यम MSME पंजीयन",
         category: "government",
         icon: "🏢",
@@ -136,7 +271,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 16,
+        id: 31,
         title: "आयकर (ITR)",
         category: "banking",
         icon: "📈",
@@ -145,7 +280,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 17,
+        id: 32,
         title: "FSSAI खाद्य लाइसेंस",
         category: "government",
         icon: "🛡️",
@@ -154,7 +289,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 18,
+        id: 33,
         title: "जन्म प्रमाण पत्र",
         category: "document",
         icon: "👶",
@@ -163,7 +298,7 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 19,
+        id: 34,
         title: "मृत्यु प्रमाण पत्र",
         category: "document",
         icon: "⚫",
@@ -172,12 +307,147 @@ const services = [
         guide: "GUIDE"
     },
     {
-        id: 20,
+        id: 35,
         title: "विवाह प्रमाण पत्र",
         category: "document",
         icon: "💒",
         description: "MP e-District - TMC",
         fee: "₹100 + ₹100 मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 36,
+        title: "विवाह पंजीकरण / संशोधन",
+        category: "document",
+        icon: "💍",
+        description: "Marriage Registration Service",
+        fee: "₹50-100 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 37,
+        title: "तलाक प्रमाण पत्र",
+        category: "document",
+        icon: "📋",
+        description: "Divorce Certificate",
+        fee: "₹50-100 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 38,
+        title: "नागरिकता प्रमाण पत्र",
+        category: "document",
+        icon: "🌍",
+        description: "Citizenship Certificate",
+        fee: "₹500-1000 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 39,
+        title: "खेत की जमीन नक्शा / खतौनी",
+        category: "document",
+        icon: "🚜",
+        description: "Land Record / Revenue Map",
+        fee: "₹25-50 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 40,
+        title: "संपत्ति रजिस्ट्रेशन",
+        category: "banking",
+        icon: "🏘️",
+        description: "Property Registration Service",
+        fee: "₹5000-10000 (राजस्व शुल्क)",
+        guide: "GUIDE"
+    },
+    {
+        id: 41,
+        title: "लाइसेंस के लिए आवेदन",
+        category: "document",
+        icon: "📜",
+        description: "Business License Application",
+        fee: "₹100-500 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 42,
+        title: "ट्रेडमार्क पंजीकरण",
+        category: "government",
+        icon: "™️",
+        description: "Trademark Registration",
+        fee: "₹4,500-9,000 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 43,
+        title: "पेटेंट आवेदन",
+        category: "government",
+        icon: "🔬",
+        description: "Patent Application",
+        fee: "₹2,200-10,000 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 44,
+        title: "कॉपीराइट पंजीकरण",
+        category: "government",
+        icon: "©️",
+        description: "Copyright Registration",
+        fee: "₹300-500 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 45,
+        title: "भारतीय नागरिकता के लिए आवेदन",
+        category: "document",
+        icon: "🇮🇳",
+        description: "Indian Citizenship Application",
+        fee: "निशुल्क",
+        guide: "GUIDE"
+    },
+    {
+        id: 46,
+        title: "स्कूल छोड़ने का प्रमाणपत्र",
+        category: "document",
+        icon: "🎓",
+        description: "School Leaving Certificate",
+        fee: "₹20-50 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 47,
+        title: "शैक्षणिक प्रमाणपत्र सत्यापन",
+        category: "document",
+        icon: "📚",
+        description: "Educational Certificate Verification",
+        fee: "₹50-100 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 48,
+        title: "डिजिटल हस्ताक्षर (DSC)",
+        category: "banking",
+        icon: "🔐",
+        description: "Digital Signature Certificate",
+        fee: "₹500-2000 + मीटर",
+        guide: "GUIDE"
+    },
+    {
+        id: 49,
+        title: "मोबाइल नंबर पोर्टिंग",
+        category: "utility",
+        icon: "📱",
+        description: "MNP - Number Portability",
+        fee: "₹19-99 (नेटवर्क शुल्क)",
+        guide: "GUIDE"
+    },
+    {
+        id: 50,
+        title: "आधार सीडिंग (Linking)",
+        category: "banking",
+        icon: "🔗",
+        description: "Aadhar Linking Service",
+        fee: "निशुल्क",
         guide: "GUIDE"
     }
 ];
@@ -187,6 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderServices(services);
     setupFilters();
     setupSearch();
+    updateStats();
 });
 
 // Render Services
@@ -235,6 +506,7 @@ function setupFilters() {
                 const filtered = services.filter(s => s.category === filter);
                 renderServices(filtered);
             }
+            updateStats();
         });
     });
 }
@@ -256,6 +528,11 @@ function setupSearch() {
 function toggleFavorite(btn) {
     btn.classList.toggle('active');
     btn.textContent = btn.classList.contains('active') ? '❤️' : '🤍';
+}
+
+// Update Stats
+function updateStats() {
+    document.getElementById('totalServices').textContent = services.length + '+';
 }
 
 // Category Label
