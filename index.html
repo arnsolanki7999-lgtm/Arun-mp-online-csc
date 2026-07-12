@@ -3,88 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arun MP Online CSC - सरकारी सेवाएं</title>
+    <title>Indore Cyber Café Master Guide 2024 - सरकारी सेवाएं</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
                 <div class="logo">
-                    <span class="logo-icon">🏛️</span>
-                    <h1>Arun MP Online CSC</h1>
-                </div>
-                <p class="subtitle">इंदौर - सरकारी सेवाएं गाइड 2024</p>
-            </div>
-            <div class="header-nav">
-                <button class="nav-btn" onclick="showHome()">🏠 होम</button>
-                <button class="nav-btn" onclick="showServices()">📋 सेवाएं</button>
-                <button class="nav-btn" onclick="showAdmin()">📊 Admin Panel</button>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Home Page -->
-            <section id="homePage" class="page active">
-                <div class="hero">
-                    <h2>आपकी सभी सरकारी सेवाएं एक जगह</h2>
-                    <p>प्रमाण पत्र, लाइसेंस, पंजीकरण - सब कुछ के लिए Step-by-Step Guide</p>
-                    <button class="hero-btn" onclick="showServices()">सेवाएं देखें 👉</button>
-                </div>
-            </section>
-
-            <!-- Services Page -->
-            <section id="servicesPage" class="page">
-                <div class="search-section">
-                    <input type="text" id="searchInput" class="search-box" placeholder="सेवा खोजें...">
-                </div>
-                <div class="services-grid" id="servicesGrid"></div>
-            </section>
-
-            <!-- Service Detail Page -->
-            <section id="detailPage" class="page">
-                <button class="back-btn" onclick="showServices()">← वापिस</button>
-                <div class="detail-container" id="detailContent"></div>
-            </section>
-
-            <!-- Admin Panel -->
-            <section id="adminPage" class="page">
-                <div class="admin-container">
-                    <h2>📊 Admin Dashboard</h2>
-                    <div class="admin-tabs">
-                        <button class="tab-btn active" onclick="showAdminTab('pending')">⏳ पेंडिंग</button>
-                        <button class="tab-btn" onclick="showAdminTab('completed')">✅ पूरी हुई</button>
-                        <button class="tab-btn" onclick="showAdminTab('all')">📋 सभी</button>
+                    <span class="logo-icon">📋</span>
+                    <div class="logo-text">
+                        <div class="logo-subtitle">MASTER GUIDE 2024</div>
+                        <div class="logo-title">इंदौर साइबर कैफे मास्टर गाइड</div>
                     </div>
-                    <div id="adminContent" class="admin-content"></div>
                 </div>
-            </section>
-        </main>
+            </div>
+            <div class="header-right">
+                <button class="header-btn" onclick="showPage('dashboard')">📊 डैशबोर्ड</button>
+                <button class="header-btn" onclick="showPage('priceTable')">₹ शुल्क सूची</button>
+                <button class="header-btn" onclick="showPage('customers')">👤 ग्राहक</button>
+                <select class="language-select" id="langSelect" onchange="changeLanguage(this.value)">
+                    <option value="hi">हि</option>
+                    <option value="en">En</option>
+                </select>
+                <button class="header-btn logout" onclick="logout()">🚪 लॉगआउट</button>
+            </div>
+        </div>
+    </header>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Arun MP Online CSC - Indore | सभी सेवाएं</p>
-        </footer>
-    </div>
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Dashboard Page -->
+        <div id="dashboard" class="page active">
+            <div class="breadcrumb">
+                <span>INDORE • MP • MASTER GUIDE 2024</span>
+            </div>
 
-    <!-- Service Detail Modal -->
+            <div class="hero-section">
+                <h1>40+ सरकारी सेवाएं, एक जगह।</h1>
+                <p>हर सेवा का official link, आवश्यक दस्तावेज़, शुल्क व step-by-step फॉर्म-फिलिंग गाइड – एक जिंदल में।</p>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">👤</div>
+                    <div class="stat-label">कुल गाइड</div>
+                    <div class="stat-value" id="totalServices">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-label">लबिंत</div>
+                    <div class="stat-value" id="pendingCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-label">पूर्ण</div>
+                    <div class="stat-value" id="completedCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔔</div>
+                    <div class="stat-label">आज के रिमाइंडर</div>
+                    <div class="stat-value">0</div>
+                </div>
+            </div>
+
+            <div class="search-section">
+                <input type="text" id="searchInput" class="search-box" placeholder="सेवा खोजें – जैसे PAN, आधार, बिजली बिल..." onkeyup="filterServices()">
+            </div>
+
+            <div class="filter-section">
+                <button class="filter-btn active" onclick="filterByCategory('all')">सभी <span>41</span></button>
+                <button class="filter-btn" onclick="filterByCategory('national')">राष्ट्रीय सेवाएं <span>11</span></button>
+                <button class="filter-btn" onclick="filterByCategory('state')">मध्य प्रदेश सेवाएं <span>12</span></button>
+                <button class="filter-btn" onclick="filterByCategory('indore')">इंदौर स्थानीय <span>2</span></button>
+                <button class="filter-btn" onclick="filterByCategory('transport')">वाहन व परिवहन <span>5</span></button>
+                <button class="filter-btn" onclick="filterByCategory('utility')">व्यवसाय व टैक्स <span>4</span></button>
+                <button class="filter-btn" onclick="filterByCategory('welfare')">प्रमाणपत्र व रिकॉर्ड <span>3</span></button>
+                <button class="filter-btn" onclick="filterByCategory('schemes')">कल्याण योजनाएं <span>4</span></button>
+            </div>
+
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+
+        <!-- Service Detail Page -->
+        <div id="serviceDetail" class="page">
+            <div class="detail-back">
+                <button onclick="showPage('dashboard')">← डैशबोर्ड पर वापस</button>
+            </div>
+            <div id="detailContent" class="detail-content"></div>
+        </div>
+
+        <!-- Price Table Page -->
+        <div id="priceTable" class="page">
+            <h2>अनुशंसित सेवा शुल्क</h2>
+            <p>पारंपरिक व एक सामान्य शुल्क निर्धारण के लिए सामान्य शुल्क व सेवा शुल्क अलग-अलग दिखाई।</p>
+            <div class="price-table-container">
+                <table class="price-table">
+                    <tbody id="priceTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Customer Records Page -->
+        <div id="customers" class="page">
+            <h2>आपके ग्राहक रिकॉर्ड</h2>
+            <p>हर सेवा के लिए Quick Create करें और, तिमिति के बाद के WhatsApp पर संपर्क करें पेमेंट करें।</p>
+            <div class="customer-controls">
+                <input type="text" id="customerSearch" class="search-box" placeholder="नाम / मोबाइल / सेवा..." onkeyup="filterCustomers()">
+                <button class="export-btn" onclick="exportCSV()">📥 CSV</button>
+            </div>
+            <div class="customer-table-container">
+                <table class="customer-table">
+                    <thead>
+                        <tr>
+                            <th>स्टेटस</th>
+                            <th>सेवा</th>
+                            <th>मोबाइल</th>
+                            <th>नाम</th>
+                            <th>ईमेलें</th>
+                            <th>कार्रवाई</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Booking Modal -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeBooking()">&times;</span>
-            <h2>सेवा के लिए आवेदन करें</h2>
-            <form id="bookingForm" onsubmit="submitBooking(event)">
-                <input type="text" id="customerName" placeholder="आपका नाम" required>
-                <input type="tel" id="customerPhone" placeholder="फोन नंबर (WhatsApp)" required>
-                <input type="email" id="customerEmail" placeholder="ईमेल (Optional)">
-                <textarea id="customerNotes" placeholder="कोई विशेष जानकारी..."></textarea>
-                <button type="submit" class="submit-btn">आवेदन करें ✅</button>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>आवेदन करें</h2>
+            <form onsubmit="submitBooking(event)">
+                <input type="hidden" id="selectedServiceId">
+                <input type="text" id="bookingName" placeholder="नाम" required>
+                <input type="tel" id="bookingPhone" placeholder="फोन नंबर (WhatsApp)" required>
+                <input type="email" id="bookingEmail" placeholder="ईमेल (Optional)">
+                <textarea id="bookingNotes" placeholder="नोट्स"></textarea>
+                <button type="submit" class="submit-btn">✅ आवेदन करें</button>
             </form>
         </div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="main.js"></script>
+    <script src="services-data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
